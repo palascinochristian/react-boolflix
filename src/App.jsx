@@ -1,3 +1,14 @@
+import Header from "./components/Header";
+import Main from "./components/Main";
+import { DataProvider } from "./contexts/DataContext";
+
 export default function App() {
-  return <h1 className="text-3xl">Boolflix</h1>;
+  return (
+    <>
+      <DataProvider>
+        <Header />
+        <Main />
+      </DataProvider>
+    </>
+  );
 }

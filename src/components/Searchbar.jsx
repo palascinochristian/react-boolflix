@@ -22,16 +22,24 @@ export default function Searchbar() {
 
   return (
     <>
-      <form onSubmit={handleSearch}>
+      <form
+        onSubmit={handleSearch}
+        className="flex items-center bg-gray-800 rounded-full px-4 py-2"
+      >
         <input
-          className="mr-5"
+          className="bg-transparent text-white placeholder-gray-400 outline-none w-full text-lg"
           name="search"
           type="search"
           placeholder="Cerca..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button type="submit">🔍</button>
+        <button
+          className="bg-red-600 text-white rounded-sm p-1 ml-2"
+          type="submit"
+        >
+          Ricerca
+        </button>
       </form>
     </>
   );

@@ -7,9 +7,9 @@ export default function Main() {
 
   return (
     <Fragment>
-      <main>
+      <main className="p-2">
         {Array.isArray(movies) && movies.length > 0 ? (
-          <h2 className="text-2xl font-semibold text-black mb-6 bg-gradient-to-r from-red-600 via-red-500 to-red-400 bg-clip-text text-transparent shadow-lg p-2">
+          <h2 className="text-2xl font-semibold text-red-700 p-3">
             La ricerca ha prodotto i seguenti risultati:
           </h2>
         ) : (
@@ -17,7 +17,7 @@ export default function Main() {
             Nessun risultato trovato
           </h2>
         )}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-6 gap-4">
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}

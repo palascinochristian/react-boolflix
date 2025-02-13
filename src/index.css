@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+body {
+  height: 100vh;
+  background-color: #141414;
+}
+header {
+  background-color: #161616;
+  vertical-align: auto;
+}

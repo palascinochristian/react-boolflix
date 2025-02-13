@@ -16,33 +16,31 @@ const voteStars = (vote) => {
 
 export default function MovieCard({ movie }) {
   return (
-    <div className="bg-white rounded-md shadow-lg p-4 flex flex-col justify-between h-full">
-      <h2 className="text-2xl font-bold mb-2">{movie.title}</h2>
-
-      <img
-        src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
-        alt={movie.title}
-        className="mb-2 rounded-md"
-      />
-      <h3 className="text-xl font-light mb-2">{movie.original_title}</h3>
-
-      <div className="text-gray-700 mb-2">
-        <span className="font-semibold">Lingua Originale:</span>
-        {languageFlags[movie.original_language] ? (
-          <img
-            src={languageFlags[movie.original_language]}
-            alt={movie.original_language}
-            className="w-6 h-4 inline-block ml-2"
-          />
-        ) : (
-          "🏳️"
-        )}
+    <>
+      <div className="relative group rounded-md overflow-hidden">
+        <img
+          src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+          alt={movie.title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
+          <h2 className="text-lg font-bold">{movie.title}</h2>
+          <h3 className="text-md italic">{movie.original_title}</h3>
+          <div className="flex items-center mt-2">
+            <span className="font-semibold mr-2">Lingua:</span>
+            {languageFlags[movie.original_language] ? (
+              <img
+                src={languageFlags[movie.original_language]}
+                alt={movie.original_language}
+                className="w-6 h-4"
+              />
+            ) : (
+              "🏳️"
+            )}
+          </div>
+          <div className="mt-2 text-white">{voteStars(movie.vote_average)}</div>
+        </div>
       </div>
-
-      <div className="text-black-500 text-xl">
-        <span className="font-semibold">Voto:</span>{" "}
-        {voteStars(movie.vote_average)}
-      </div>
-    </div>
+    </>
   );
 }
